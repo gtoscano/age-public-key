@@ -1,8 +1,8 @@
 # age-public-key
 Gregorio Toscano's Age Public Key
-
+```
 # public key: age1cv56lf4l4yjwzt433777mehj8gdjwt3a2vq0v92r540a2jgzdfuqtlwxs9
-
+```
 
 # Introduction to Age (Actually Good Encryption)
 ## A Modern Approach to File Encryption
