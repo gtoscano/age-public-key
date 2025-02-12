@@ -1,148 +1,68 @@
-# age-public-key
-Gregorio Toscano's Age Public Key
-```
-# public key: age1cv56lf4l4yjwzt433777mehj8gdjwt3a2vq0v92r540a2jgzdfuqtlwxs9
-```
+# Public Keys of Gregorio Toscano (gtoscano)
 
-# Introduction to Age (Actually Good Encryption)
-## A Modern Approach to File Encryption
-### Presenter: Gregorio Toscano
-### Date: 02/03/2025
+Welcome to my public keys repository. Here, I share my public keys for secure communications and file encryption.
 
----
+## About Me
 
-# What is Age?
-- **Age** stands for **Actually Good Encryption**.
-- A simple, modern, and secure file encryption tool.
-- Designed to be a more user-friendly alternative to PGP.
-- Prioritizes **ease of use** and **strong encryption** with minimal configuration.
+- **Name:** Gregorio Toscano
+- **GitHub Username:** [gtoscano](https://github.com/gtoscano)
 
----
+## Available Public Keys
 
-# Why Use Age?
-- **Simplicity:** Easy to use with straightforward commands.
-- **Security:** Uses modern encryption algorithms like **X25519** and **ChaCha20-Poly1305**.
-- **Portability:** Small, fast, and works across platforms.
-- **No Key Management Hassles:** Generates key pairs without complex keyrings.
+### AGE Public Key
 
----
+- **File:** `gtoscano-pulic-key.txt`
+- **Key:**
 
-# Installing Age
-### On Linux (Debian-based systems):
-```sh
-sudo apt install age
-```
-
-### On macOS (using Homebrew):
-```sh
-brew install age
-```
-
-### On Windows:
-- Download the binaries from the official [Age GitHub Releases](https://github.com/FiloSottile/age/releases).
-
----
-
-# Generating Age Keys
-### Create a new key pair:
-```sh
-age-keygen -o key.txt
-```
-- **key.txt** contains your private key.
-- Your public key will look like:
   ```
-  public key: age1abcdxyz...
+  # public key: age1cv56lf4l4yjwzt433777mehj8gdjwt3a2vq0v92r540a2jgzdfuqtlwxs9
   ```
 
-### Viewing your public key:
-```sh
-grep "# public key:" key.txt
+This key can be used with the [age encryption tool](https://github.com/FiloSottile/age). To encrypt a file for me using age, you can run:
+
+```bash
+age -r age1cv56lf4l4yjwzt433777mehj8gdjwt3a2vq0v92r540a2jgzdfuqtlwxs9 -o encrypted.age yourfile.txt
 ```
 
----
+### PGP Public Key
 
-# Encrypting Files with Age
-### Encrypt a file for yourself or a recipient:
-```sh
-age -r age1abcdxyz... -o encrypted_file.age original_file.txt
+- **File:** `gtoscano-pgp-publickey.asc`
+- **Key:**
+
+  ```
+  -----BEGIN PGP PUBLIC KEY BLOCK-----
+
+  mDMEZ6z8WhYJKwYBBAHaRw8BAQdAVdxqGfbfeSZGzYIGx1Won4VmZgj9zYQ1xk9q
+  UBQAAP+0JUdyZWdvcmlvIFRvc2Nhbm8gPGd0b3NjYW5vQGdtYWlsLmNvbT6IkwQT
+  FgoAOxYhBG2IIdgEM7AL0PpS/UrwYF99ORT6BQJnrPxaAhsDBQsJCAcCAiICBhUK
+  CQgLAgQWAgMBAh4HAheAAAoJEErwYF99ORT6VsABAJhVvHejRtK2vr91XnwPWS8M
+  TJGXj1RHqc57g1GdWmaFAP9zHE04jH/JJkaVscpn6XTJVupl9IZdUAJndpMdDl4m
+  Abg4BGes/FoSCisGAQQBl1UBBQEBB0AAx2cTPrxe0btk5nzy09h7qyeFwsvP/eph
+  JLK3ed5XRQMBCAeIeAQYFgoAIBYhBG2IIdgEM7AL0PpS/UrwYF99ORT6BQJnrPxa
+  AhsMAAoJEErwYF99ORT6wSABAP1HwaXjVbvuXHaf5KAfewsbcCrNLRk8W5PTIu/b
+  6kJmAPsEFOnvsgVTcilDuqWgH87RieSPrdHv/ot5uGq28QdiBQ==
+  =J3Ao
+  -----END PGP PUBLIC KEY BLOCK-----
+  ```
+
+This key is intended for use with PGP-compatible tools such as [GnuPG](https://gnupg.org/). To import my PGP key, run:
+
+```bash
+gpg --import gtoscano-pgp-publickey.asc
 ```
-- **`-r`**: Specifies the recipient's public key.
-- **`-o`**: Specifies the output file name.
-- **`original_file.txt`**: The file you want to encrypt.
 
-### Encrypt with a passphrase (symmetric encryption):
-```sh
-age -p -o encrypted_file.age original_file.txt
-```
-- You'll be prompted to enter a passphrase.
+## How to Use These Keys
 
----
+- **For AGE Encryption:**  
+  Use my AGE public key to encrypt files meant for me. The encryption command explicitly specifies the recipient's public key as shown above.
 
-# Decrypting Files with Age
-### Decrypt a file with your private key:
-```sh
-age -d -i key.txt -o decrypted_file.txt encrypted_file.age
-```
-- **`-d`**: Decrypts the file.
-- **`-i key.txt`**: Specifies your private key file.
-- **`-o`**: Specifies the output (decrypted) file.
+- **For PGP Encryption:**  
+  Import my PGP public key to your keyring and use it for encrypting emails or files. Consult your PGP tool's documentation for further details.
 
-### Decrypt a passphrase-encrypted file:
-```sh
-age -d -o decrypted_file.txt encrypted_file.age
-```
-- You'll be prompted for the passphrase.
+## Contact
+
+If you have any questions or need assistance with secure communications, feel free to open an issue or contact me directly.
 
 ---
 
-# Example Workflow
-1. **Generate a key pair:**
-   ```sh
-   age-keygen -o mykey.txt
-   ```
-2. **Share your public key:**
-   ```sh
-grep "# public key:" mykey.txt
-   ```
-3. **Encrypt a file for yourself:**
-   ```sh
-   age -r age1abcdxyz... -o secret.age confidential.txt
-   ```
-4. **Decrypt the file:**
-   ```sh
-   age -d -i mykey.txt -o decrypted.txt secret.age
-   ```
-
----
-
-# Comparing Age and PGP
-| Feature               | **PGP**                             | **Age**                         |
-|-----------------------|-------------------------------------|---------------------------------|
-| Key Management        | Complex keyrings, trust models      | Simple key files, no keyrings   |
-| Algorithms            | RSA, DSA, ElGamal                  | X25519, ChaCha20-Poly1305       |
-| Ease of Use           | Steeper learning curve              | User-friendly, minimal commands |
-| File Support          | Files, emails, signatures           | File encryption only            |
-| Performance           | Slower, especially with large keys  | Fast and lightweight            |
-
----
-
-# Best Practices for Using Age
-- **Keep your private key safe**: Store `key.txt` securely.
-- **Backup your key**: If you lose it, you can't decrypt your files.
-- **Use strong passphrases** for symmetric encryption.
-- **Verify recipient public keys** before encrypting.
-
----
-
-# Summary
-- **Age** is a modern, secure, and simple alternative to PGP.
-- Ideal for file encryption with minimal setup.
-- Uses strong cryptographic algorithms.
-- Great for quick, secure file transfers and personal encryption needs.
-
----
-
-# Q&A
-- Any questions?
-- Thank you for your attention!
-
+*This repository is maintained by Gregorio Toscano (gtoscano).*
